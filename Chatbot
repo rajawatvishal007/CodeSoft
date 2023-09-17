@@ -1,0 +1,40 @@
+def simple_chatbot(user_input):
+    user_input = user_input.lower()
+
+    rules = {
+        "hello": "Hello! How can I assist you today?",
+        "hi": "Hi there! How can I assist you today?",
+        "hey": "Hey! How can I assist you today?",
+        "how are you": "I'm just a chatbot, but I'm here to help you!",
+        "what's your name": "I'm a chatbot. You can call me Vishal's robot.",
+        "what can you do": "I can provide information, answer questions, and have a small  conversation with you.",
+        "how can you help me": "I can do some tasks, from providing information to basic calculations.",
+        "i need help": "what i can do for you ? ",
+        "what time is it": "I'm sorry, I cannot provide real-time time information.",
+        "what's 2 + 2": "2 + 2 equals 4.",
+        "calculate 15% of 100": "15% of 100 is 15.",
+        "convert 10 miles to kilometers": "10 miles is approximately 16.09 kilometers.",
+        "how many pounds are in a kilogram": "There are approximately 2.205 pounds in a kilogram.",
+        "what movie should I watch tonight": "It depends on your preferences. What genre do you enjoy?",
+        "tell me a joke": "Why did the scarecrow win an award? Because he was outstanding in his field!",
+        "sing me a song": "I'm just a text-based chatbot, so I can't sing, but I can provide song lyrics if you'd like.",
+        "translate 'hello' to Spanish": "Hello in Spanish is 'Hola.'",
+        "what is artificial intelligence": "Artificial intelligence (AI) refers to the simulation of human intelligence in machines that are capable of learning and performing tasks that typically require human intelligence.",
+        "what are the symptoms of the flu": "Flu symptoms include fever, cough, sore throat, body aches, fatigue, and more. If you suspect you have the flu, consult a healthcare professional.",
+        "see you later": "See you later! If you need assistance, don't hesitate to return.",
+        "farewell": "Farewell! Have a great day!"
+    }
+
+    for rule, answere in rules.items():
+        if rule in user_input:
+            return answere
+
+    return "I'm sorry, I don't understand that. Please ask another question."
+
+while True:
+    user_input = input("You: ")
+    if user_input.lower() == 'exit':
+        print("Chatbot: Goodbye!")
+        break
+    answere = simple_chatbot(user_input)
+    print("Chatbot:", answere)
