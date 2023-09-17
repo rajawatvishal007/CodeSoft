@@ -1,0 +1,74 @@
+class Movie:
+    def __init__(self, title, genre):
+        self.title = title
+        self.genre = genre
+
+class MovieRecommendationSystem:
+    def __init__(self):
+        self.movies = []
+
+    def add_movie(self, title, genre):
+        movie = Movie(title, genre)
+        self.movies.append(movie)
+
+    def recommend_movies(self, user_genre_preference):
+        recommended_movies = []
+
+        for movie in self.movies:
+            if movie.genre.lower() == user_genre_preference.lower():
+                recommended_movies.append(movie)
+
+        return recommended_movies
+
+if __name__ == "__main__":
+    recommendation_system = MovieRecommendationSystem()
+
+    # Action movies
+    recommendation_system.add_movie("Fast and Furious", "Action")
+    recommendation_system.add_movie("Mission Impossible", "Action")
+    recommendation_system.add_movie("The Extraction", "Action")
+    recommendation_system.add_movie("The Expandables", "Action")
+    recommendation_system.add_movie("Venom", "Action")
+    recommendation_system.add_movie("X-Men", "Action")
+    recommendation_system.add_movie("Batman", "Action")
+
+    # Comedy movies
+    recommendation_system.add_movie("Johnny English", "Comedy")
+    recommendation_system.add_movie("Hangover", "Comedy")
+    recommendation_system.add_movie("The Mask", "Comedy")
+    recommendation_system.add_movie("Ghostbusters", "Comedy")
+    recommendation_system.add_movie("Rush Hour 3", "Comedy")
+    recommendation_system.add_movie("Due Date", "Comedy")
+    recommendation_system.add_movie("Spy", "Comedy")
+    recommendation_system.add_movie("Get Hard", "Comedy")
+
+    # Drama movies
+    recommendation_system.add_movie("Titanic", "Drama")
+    recommendation_system.add_movie("Oppenheimer", "Drama")
+    recommendation_system.add_movie("The Wolf of Wall Street", "Drama")
+    recommendation_system.add_movie("The Godfather", "Drama")
+    recommendation_system.add_movie("Catch Me If You Can", "Drama")
+    recommendation_system.add_movie("Don't Look Up", "Drama")
+    recommendation_system.add_movie("The Irishman", "Drama")
+    recommendation_system.add_movie("Dunkirk", "Drama")
+
+    # Horror movies
+    recommendation_system.add_movie("IT", "Horror")
+    recommendation_system.add_movie("The Conjuring", "Horror")
+    recommendation_system.add_movie("Evil Dead Rise", "Horror")
+    recommendation_system.add_movie("Annabelle", "Horror")
+    recommendation_system.add_movie("The Pope's Exorcist", "Horror")
+    recommendation_system.add_movie("Insidious", "Horror")
+    recommendation_system.add_movie("American Mummy", "Horror")
+    recommendation_system.add_movie("The Nun", "Horror")
+
+    user_preference = input("Enter your genre preference (Action, Horror, Comedy, or Drama): ")
+
+    recommended_movies = recommendation_system.recommend_movies(user_preference)
+
+    if recommended_movies:
+        print(f"Recommended Movies for {user_preference} lovers:")
+        for movie in recommended_movies:
+            print(movie.title)
+    else:
+        print(f"No {user_preference} movies found in the database.")
